@@ -1,0 +1,11 @@
+Arguments = 5
+var x = 2
+if x == 2
+    printvar x
+    println ""
+    END
+
+if ARGS[4] == 0
+    printvar ARGS[4]
+    println ""
+    END

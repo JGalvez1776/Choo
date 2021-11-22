@@ -1,0 +1,7 @@
+Arguments = 0
+
+var x = 10
+if x > 10
+    # Shows that an invalidly spaced line is incorrect 
+    println"HI"
+    END
