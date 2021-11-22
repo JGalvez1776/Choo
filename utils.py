@@ -51,7 +51,8 @@ def var_check(line):
     assert line[0] == "var", msg
     assert not line[1].isnumeric(), msg
     assert line[2] == "=", msg
-    assert is_valid_expression(line[3:]), \
+    if "ARGS" not in line[3:][0]:
+        assert is_valid_expression(line[3:]), \
                 msg + " "  + f"Invald expression : {line[3:]}"
     variables.append(line[1])
     return True
@@ -145,7 +146,7 @@ def print_check(line):
     return True
 
 def print_out(line):
-    print(f'print({" ".join(line[1:])}, end='')')
+    print(f'print({" ".join(line[1:])}, end=\'\')')
 
 def println_check(line):
     msg = f"Poorly formatted println: {line}"
