@@ -15,10 +15,9 @@ def open_files(args):
     file = open(original_name, 'r')
     content = file.readlines()
     file.close()
-    out = open(out_name, 'w')
-    return content, out
+    return content
 
-def out_arguements(file, out_file):
+def out_arguements(file):
     line = file[0]
     line = line.strip().split(" ")
     msg = "Argument count formatted incorrectly. "
@@ -41,11 +40,11 @@ def out_arguements(file, out_file):
     
 
 def main(args):
-    file, out = open_files(args)
+    file = open_files(args)
     #sys.stdout = out
 
 
-    out_arguements(file, out)
+    out_arguements(file)
     expected_indentation = 0
     for line in file[1:]:
         line, indentation = format_line(line)
@@ -81,9 +80,6 @@ def main(args):
         else:
             assert False, "Poorly formatted line found"
 
-        #print(f"\"{line}\" {indentation}")
-
-    out.close()
 
 def format_line(line):
     line = line.strip("\n").split(" ")

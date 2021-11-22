@@ -1,11 +1,49 @@
 Arguments = 5
 var x = 2
-if x == 2
+var sum = 1 + (2 / 3 * (4 - 2)) % 1
+
+if true
+    println "TRUE"
+    END
+
+var a = 99
+
+if false || 3 == 2 && 1 > a
+    println "COMPOUND"
+    END
+
+
+if x == 1
     printvar x
     println ""
     END
+elif x >= 3
+    print "THREE"
+    END
+elif x >= 3
+    print "THREE"
+    END
+else
+    print "ELSE"
+    END
 
-if ARGS[4] == 0
+if ARGS[4] >= 0
     printvar ARGS[4]
     println ""
     END
+else
+    var d = 123
+    END
+
+var i = 0 
+
+while i < 100 && ~ 10 != 2 && ~ true
+    var result = i % 5
+    if result == 0 
+        printvar result
+        println ""
+        END
+    i = i + 1
+    END
+
+println "Done"

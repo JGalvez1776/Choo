@@ -10,9 +10,13 @@ def is_valid_expression(expr):
     i = 0
     for elem in expr:
         elem = elem.strip("[]")
-        for character in "+-*/%":
-            if character == elem and i % 2 == 0:
-                return False
+        #for character in "+-*/%":
+        #    if character == elem and i % 2 == 0:
+        #        return False
+        if i % 2 == 0:
+            assert elem.isnumeric() or elem in variables
+        else:
+            assert len(elem) == 1 and elem in '+-*/%'
         i += 1
     return True
 
@@ -69,7 +73,8 @@ boolean_terms = {
     "<"  : "<",
     "<=" : "<=",
     "==" : "==",
-    "!=" : "!="
+    "!=" : "!=",
+    "~" : "not"
 }
 
 def in_terms(elem):
@@ -82,14 +87,14 @@ def validate_boolean_form(expr):
     is_term = True
     for i in range(1, len(expr)):
         elem = expr[i]
+        if elem == "~" and is_term:
+            expr[i] = "not"
+            continue
         if elem in boolean_terms and is_term:
             return False
         elif in_terms(elem):
             expr[i] = boolean_terms[elem]
         elif not is_term:
-            print("B")
-            print(elem)
-            print(expr)
             return False
         elif elem == "true" or elem == "false":
             expr[i] = elem.capitalize()
