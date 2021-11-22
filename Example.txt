@@ -18,13 +18,13 @@ if x == 1
     println ""
     END
 elif x >= 3
-    print "THREE"
+    println "THREE"
     END
 elif x >= 3
-    print "THREE"
+    println "THREE"
     END
 else
-    print "ELSE"
+    println "ELSE"
     END
 
 if ARGS[4] >= 0
